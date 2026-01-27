@@ -39,7 +39,7 @@
     @livewireStyles
 </head>
 <body class="font-sans antialiased bg-gray-50">
-    @include('layouts.navbar')
+    {{--  @include('layouts.navbar')  --}}
 
     <main class="container mx-auto px-4 py-8">
         @yield('content')

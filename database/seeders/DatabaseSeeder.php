@@ -10,10 +10,11 @@ class DatabaseSeeder extends Seeder
     /**
      * Seed the application's database.
      */
-    public function run(): void
-    {
-        $this->call([
-            CategorySeeder::class,
-        ]);
-    }
+
+    public function run()
+{
+
+    \App\Models\Product::factory(100)->create();
+}
+
 }
