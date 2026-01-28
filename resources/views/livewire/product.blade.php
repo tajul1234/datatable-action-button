@@ -1,3 +1,5 @@
 <div>
-   <livewire:product-table />
+    <livewire:product-table />
+
+   
 </div>

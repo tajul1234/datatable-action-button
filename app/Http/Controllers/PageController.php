@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Product;
 use Illuminate\Http\Request;
 
 class PageController extends Controller
@@ -13,4 +14,13 @@ class PageController extends Controller
     public function contact(){
         return view('contact');
     }
+
+    public function edit($id){
+       $datas= Product::where('id',$id)->first();
+        return view('update',compact('$datas'));
+    }
+
+
+
 }
+

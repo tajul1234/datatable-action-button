@@ -2,9 +2,11 @@
 
 namespace App\Livewire;
 
-use Rappasoft\LaravelLivewireTables\DataTableComponent;
-use Rappasoft\LaravelLivewireTables\Views\Column;
 use App\Models\Product;
+use Rappasoft\LaravelLivewireTables\Views\Column;
+use Rappasoft\LaravelLivewireTables\DataTableComponent;
+use Rappasoft\LaravelLivewireTables\Views\Columns\LinkColumn;
+use Rappasoft\LaravelLivewireTables\Views\Columns\WireLinkColumn;
 
 class ProductTable extends DataTableComponent
 {
@@ -37,10 +39,29 @@ class ProductTable extends DataTableComponent
             Column::make("Stock", "stock")
                 ->sortable()
                  ->searchable(),
-            Column::make("Created at", "created_at")
-                ->sortable(),
-            Column::make("Updated at", "updated_at")
-                ->sortable(),
+         WireLinkColumn::make("Delete Item")
+    ->title(fn($row) => 'Delete')
+    ->confirmMessage('Are you sure you want to delete this item?')
+    ->action(fn($row) => 'delete("'.$row->id.'")')
+    ->attributes(fn($row) => [
+        'class' => 'text-red-500',
+    ]),
+
+
+
+    LinkColumn::make('Action')
+    ->title(fn($row) => 'Edit')
+    ->location(fn($row) => route('edit.product', $row))
+    ->attributes(fn($row) => [
+        'class' => 'rounded-full',
+        'alt' => $row->name . ' Avatar',
+    ]),
+
         ];
+    }
+
+
+    public function delete($id){
+        Product::find($id)->delete();
     }
 }

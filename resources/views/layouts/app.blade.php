@@ -8,6 +8,8 @@
 
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/flowbite@4.0.1/dist/flowbite.min.css" rel="stylesheet" />
+
 
     <!-- Custom Tailwind configuration (প্রয়োজন হলে) -->
     <script>

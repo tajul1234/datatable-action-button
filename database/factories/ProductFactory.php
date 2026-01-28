@@ -4,25 +4,19 @@ namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-/**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Product>
- */
 class ProductFactory extends Factory
 {
-    /**
-     * Define the model's default state.
-     *
-     * @return array<string, mixed>
-     */
+    protected $model = \App\Models\Product::class;
+
     public function definition(): array
     {
         return [
-            "name"=>$this->faker->word(4,true),
-            "short_title"=>$this->faker->word(),
-            "price" =>$this->faker->randomFloat(2,10,1000),
-            "sku"=>$this->faker->unique()->numerify('SKU-####'),
-            'stock'=>$this->faker->numberBetween(0,200),
-            
+            "name" => $this->faker->word(),
+            "short_title" => $this->faker->word(),
+            "price" => $this->faker->randomFloat(2, 10, 1000),
+            "sku" => $this->faker->unique()->numerify('SKU-####'),
+            'stock' => $this->faker->numberBetween(0, 200),
+
         ];
     }
 }

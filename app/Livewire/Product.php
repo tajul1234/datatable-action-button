@@ -10,4 +10,6 @@ class Product extends Component
     {
         return view('livewire.product');
     }
+
+    
 }
