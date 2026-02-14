@@ -11,6 +11,12 @@
     <link href="https://cdn.jsdelivr.net/npm/flowbite@4.0.1/dist/flowbite.min.css" rel="stylesheet" />
 
 
+<!-- CKEditor 5 এর সঠিক CDN লিঙ্ক নিশ্চিত করুন -->
+<script src="https://cdn.ckeditor.com/ckeditor5/39.0.0/classic/ckeditor.js"></script>
+
+
+
+
     <!-- Custom Tailwind configuration (প্রয়োজন হলে) -->
     <script>
         tailwind.config = {
@@ -58,5 +64,7 @@
             });
         });
     </script>
+
+     @stack('scripts')
 </body>
 </html>

@@ -11,13 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('invoices', function (Blueprint $table) {
+        Schema::create('registrations', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->decimal('amount',10,2);
-            $table->string('address');
-            $table->date('date');
-            $table->enum('status',['pending','paid','cancelled'])->default('pending');
+            $table->string('email')->unique();
+            $table->string('phone');
+            $table->string('password');
             $table->timestamps();
         });
     }
@@ -27,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('invoices');
+        Schema::dropIfExists('registrations');
     }
 };
